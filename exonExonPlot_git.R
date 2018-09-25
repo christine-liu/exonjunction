@@ -189,6 +189,7 @@ for(n in 1:length(junctionData3_1)){
 
 ##GRAPH
 colorValues <- c(A="#8752a2", B="#e1058b", C="#71cfeb", D="#2d5980", E="#00864b", F="#fef200", G="#fdb813", H="#ee3f76", I="#5656ab", J="#2d5980", K="#70bf54", L="#f7941d", M="#da1f3e", N="#6a489d", O="#008dd1", P="#134c69", Q="#505050",Asnv="#0AD328", Csnv="#1B4BE1", Tsnv="#CD1919", Gsnv="#F2C621")
+#***
 pngFile <- "/path/to/outfile.png"
 
 plot <- ggplot(data=exonData, aes(x=Start, y=End))+ xlim(-2300, 0) + ylim(-200, 300) + geom_segment(data = exonData, aes(x = -1*newStart, y = -10, xend = -1*newEnd, yend = -10, colour=col), size=30) + geom_text(data=exonData, aes(x=(-1*newStart-newEnd)/2, y=-25, label=label, fontface="bold"), size=12) + geom_segment(data=graphData, aes(x=-1*newStart, y=rowNum, xend=-1*newEnd, yend=rowNum), color="#B0B0B0", size=7) + geom_segment(data=graph3Data, aes(x=-1*newStart, y=rowNum, xend=-1*newEnd, yend=rowNum), color="#B0B0B0", size=7)+ geom_segment(data=snvs, aes(x=-1*newPos, y=rowNum, xend=-1*(newPos+1), yend=rowNum, colour=SNV), size=7)+scale_color_manual(values=colorValues)+ theme(legend.position="none", axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
